@@ -18,10 +18,10 @@ const postVideoController = (req, res) => {
             id: 4,
             title: data.title,
             author: data.author,
-            canBeDownloaded: true,
+            canBeDownloaded: false,
             minAgeRestriction: null,
-            createdAt: new Date().toDateString(),
-            publicationDate: new Date().toDateString(),
+            createdAt: new Date().toISOString(),
+            publicationDate: new Date().toISOString(),
             availableResolutions: data.availableResolutions,
         };
         db_1.db.videos.push(video);

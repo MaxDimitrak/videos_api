@@ -32,10 +32,10 @@ export const postVideoController = (req: Request<{},{},RequestValueType>, res: R
             id: 4,
             title: data.title,
             author: data.author,
-            canBeDownloaded: true,
+            canBeDownloaded: false,
             minAgeRestriction: null,
-            createdAt: new Date().toDateString(),
-            publicationDate:  new Date().toDateString(),
+            createdAt: new Date().toISOString(),
+            publicationDate:  new Date().toISOString(),
             availableResolutions: data.availableResolutions,
         }
         db.videos.push(video)
