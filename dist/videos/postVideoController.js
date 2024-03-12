@@ -14,14 +14,18 @@ const postVideoController = (req, res) => {
         return true;
     }
     if (isCorrectData(data)) {
+        const createdAtDate = new Date();
+        const publicationDateFunc = (date) => {
+            return new Date(date.getDate() + 1);
+        };
         const video = {
             id: 4,
             title: data.title,
             author: data.author,
             canBeDownloaded: false,
             minAgeRestriction: null,
-            createdAt: new Date().toISOString(),
-            publicationDate: new Date().toISOString(),
+            createdAt: createdAtDate.toISOString(),
+            publicationDate: publicationDateFunc(createdAtDate).toISOString(),
             availableResolutions: data.availableResolutions,
         };
         db_1.db.videos.push(video);
@@ -35,7 +39,7 @@ const postVideoController = (req, res) => {
             errorMessages: [
                 {
                     message: "invalid data! missing title or author or availableResolutions",
-                    field: ""
+                    field: "some value(s) in body is(are) wrong or missing"
                 }
             ]
         });
