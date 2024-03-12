@@ -16,7 +16,8 @@ const postVideoController = (req, res) => {
     if (isCorrectData(data)) {
         const createdAtDate = new Date();
         const publicationDateFunc = (date) => {
-            return new Date(date.getDate() + 1);
+            const newDate = date.getTime() + 86400000;
+            return new Date(newDate);
         };
         const video = {
             id: 4,

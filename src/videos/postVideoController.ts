@@ -30,7 +30,8 @@ export const postVideoController = (req: Request<{},{},RequestValueType>, res: R
 
         const createdAtDate = new Date()
         const publicationDateFunc = (date: Date): Date =>  {
-             return new Date(date.getDate() + 1)
+       const newDate = date.getTime() + 86400000
+             return new Date(newDate)
         }
         const video:VideoDBType = {
             id: 4,
