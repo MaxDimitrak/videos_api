@@ -13,7 +13,7 @@ type ErrorMessage = {
 }
 
 type ErrorResponseType = {
-    errorMessages: ErrorMessage[]
+    errorsMessages: ErrorMessage[]
 }
 export const postVideoController = (req: Request<{},{},RequestValueType>, res: Response<VideoDBType | ErrorResponseType>) =>{
     const data  = req.body
@@ -30,8 +30,8 @@ export const postVideoController = (req: Request<{},{},RequestValueType>, res: R
 
         const createdAtDate = new Date()
         const publicationDateFunc = (date: Date): Date =>  {
-       const newDate = date.getTime() + 86400000
-             return new Date(newDate)
+            const newDate = date.getTime() + 86400000
+            return new Date(newDate)
         }
         const video:VideoDBType = {
             id: 4,
@@ -49,8 +49,8 @@ export const postVideoController = (req: Request<{},{},RequestValueType>, res: R
             .send(video)
     }else{
         res.status(400)
-        res.json({
-            errorMessages:[
+        res.send({
+            errorsMessages:[
                 {
                     message: "invalid data! missing title or author or availableResolutions",
                     field: "some value(s) in body is(are) wrong or missing"

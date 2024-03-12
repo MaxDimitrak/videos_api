@@ -36,8 +36,8 @@ const postVideoController = (req, res) => {
     }
     else {
         res.status(400);
-        res.json({
-            errorMessages: [
+        res.send({
+            errorsMessages: [
                 {
                     message: "invalid data! missing title or author or availableResolutions",
                     field: "some value(s) in body is(are) wrong or missing"

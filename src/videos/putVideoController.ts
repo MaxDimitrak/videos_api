@@ -8,7 +8,7 @@ type ErrorMessage = {
 }
 
 type ErrorResponseType = {
-    errorMessages: ErrorMessage[]
+    errorsMessages: ErrorMessage[]
 }
 
 type RequestValueType = {
@@ -25,9 +25,9 @@ export const putVideoController = (req: Request<{id:string},{}, RequestValueType
    }
    else{
        res
-           .status(401)
+           .status(400)
            .send({
-               errorMessages:[
+               errorsMessages:[
                    {
                        message: "input parameters aren't correct",
                        field: "missed or wrong something"

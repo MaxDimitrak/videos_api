@@ -10,9 +10,9 @@ const putVideoController = (req, res) => {
     }
     else {
         res
-            .status(401)
+            .status(400)
             .send({
-            errorMessages: [
+            errorsMessages: [
                 {
                     message: "input parameters aren't correct",
                     field: "missed or wrong something"

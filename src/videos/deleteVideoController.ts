@@ -14,5 +14,5 @@ export const deleteVideoController = (req:Request<{id:string}>, res:any) =>{
         res.send(204,"All content is deleted")
     }
     else
-        res.sendStatus(404)
+        res.send(404)
     }

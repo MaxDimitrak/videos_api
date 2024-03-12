@@ -14,6 +14,6 @@ const deleteVideoController = (req, res) => {
         res.send(204, "All content is deleted");
     }
     else
-        res.sendStatus(404);
+        res.send(404);
 };
 exports.deleteVideoController = deleteVideoController;
