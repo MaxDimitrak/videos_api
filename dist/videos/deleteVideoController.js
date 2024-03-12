@@ -11,8 +11,7 @@ const deleteVideoController = (req, res) => {
     }
     else if (Object.keys(req.params).length === 0) {
         db_1.db.videos = [];
-        res.status(204);
-        res.send("All content is deleted");
+        res.send(204, "All content is deleted");
     }
     else
         res.sendStatus(404);

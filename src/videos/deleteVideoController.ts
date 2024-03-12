@@ -1,7 +1,7 @@
 import {Request} from "express";
 import {db} from "../db/db";
 
-export const deleteVideoController = (req:Request<{id:string}>, res) =>{
+export const deleteVideoController = (req:Request<{id:string}>, res:any) =>{
 
     const video = db.videos.find(v => v.id === +req.params.id)
     if(video !== undefined) {
@@ -11,8 +11,7 @@ export const deleteVideoController = (req:Request<{id:string}>, res) =>{
     }
     else if(Object.keys(req.params).length === 0){
         db.videos=[]
-        res.status(204)
-        res.send("All content is deleted")
+        res.send(204,"All content is deleted")
     }
     else
         res.sendStatus(404)
