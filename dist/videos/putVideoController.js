@@ -34,19 +34,19 @@ const putVideoController = (req, res) => {
     // }
     if (video) {
         res
-            .status(201)
+            .status(204)
             .send(video);
     }
     else {
         res
             .status(400)
             .send({
-            "errorMessages": [
+            errorMessages: [
                 {
-                    "message": "input parameters aren't correct"
+                    message: "input parameters aren't correct"
                 },
                 {
-                    "field": "idk"
+                    field: "idk"
                 },
             ]
         });
